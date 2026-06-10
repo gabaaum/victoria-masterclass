@@ -134,6 +134,8 @@ section{position:relative;}
 .vsl-speed button{font-family:var(--font-display);font-weight:700;font-size:.76rem;padding:.42em .8em;border-radius:3px;cursor:pointer;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#e6dccb;transition:.2s;}
 .vsl-speed button:hover{background:rgba(255,255,255,.12);}
 .vsl-speed button.on{background:var(--gold);border-color:var(--gold);color:var(--navy);}
+#vslVideo::-webkit-media-controls-timeline{display:none !important}
+#vslVideo::-webkit-media-controls-seek-back-button,#vslVideo::-webkit-media-controls-seek-forward-button{display:none !important}
 .hero .cta-row{margin-top:32px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;}
 .hero .cta-row small{color:#a3957f;font-size:.8rem;}
 
@@ -691,6 +693,15 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
       b.classList.add('on');
     });
   }
+
+  /* TRAVA: nao pode pular pra frente - so assistir (acelerar a velocidade e permitido) */
+  var maxWatched = 0;
+  v.addEventListener('timeupdate', function(){
+    if(!v.seeking){ maxWatched = Math.max(maxWatched, v.currentTime); }
+  });
+  v.addEventListener('seeking', function(){
+    if(v.currentTime > maxWatched + 0.4){ v.currentTime = maxWatched; }
+  });
 })();
 </script>
 </body>

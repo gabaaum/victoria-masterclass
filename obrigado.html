@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Obrigado | Mentoria Passaporte Carreira Internacional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#2c2017;
+  --navy-2:#3a2a1d;
+  --navy-3:#4d3826;
+  --wine:#6d1f33;
+  --wine-2:#88283f;
+  --gold:#c2a062;
+  --gold-soft:#d8be8e;
+  --cream:#f3ede2;
+  --paper:#faf6ee;
+  --ink:#241b12;
+  --muted:#8a7c6c;
+  --line:rgba(44,32,23,.12);
+  --font-display:"Archivo",sans-serif;
+  --font-body:"Hanken Grotesk",sans-serif;
+  --font-serif:"Cormorant Garamond",serif;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;}
+a{text-decoration:none;color:inherit;}
+
+.kicker{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.28em;font-size:.72rem;color:var(--gold);}
+.kicker.dark{color:var(--wine);}
+h1,h2,h3{font-family:var(--font-display);line-height:1.05;letter-spacing:-.01em;}
+h2{font-weight:800;text-transform:uppercase;font-size:clamp(1.8rem,3.6vw,2.9rem);}
+.lead{font-size:clamp(1.05rem,1.6vw,1.26rem);line-height:1.62;}
+.serif{font-family:var(--font-serif);font-style:italic;}
+
+section{position:relative;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+.narrow{max-width:820px;margin:0 auto;padding:0 28px;}
+.pad{padding-block:clamp(64px,8vw,112px);}
+
+.btn{
+  display:inline-flex;align-items:center;gap:.7em;
+  font-family:var(--font-display);font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;font-size:.86rem;
+  padding:1.15em 2.1em;border-radius:2px;cursor:pointer;border:none;
+  background:var(--wine);color:#fff;
+  transition:transform .25s ease,background .25s ease,box-shadow .25s ease;
+  box-shadow:0 10px 30px -12px rgba(109,31,51,.65);
+}
+.btn:hover{background:var(--wine-2);transform:translateY(-2px);box-shadow:0 16px 38px -14px rgba(109,31,51,.8);}
+.btn .arr{transition:transform .25s ease;}
+.btn:hover .arr{transform:translateX(4px);}
+.btn.gold{background:var(--gold);color:var(--navy);box-shadow:0 10px 30px -12px rgba(194,160,98,.7);}
+.btn.gold:hover{background:var(--gold-soft);}
+.btn.big{font-size:1rem;padding:1.35em 2.6em;}
+.btn.block{display:flex;width:100%;justify-content:center;}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(44,32,23,.93);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08);}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;}
+.brand .seal{width:34px;height:34px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-family:var(--font-display);font-weight:800;font-size:.8rem;}
+.brand b{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.82rem;}
+.brand span{display:block;font-size:.6rem;letter-spacing:.3em;color:var(--gold-soft);text-transform:uppercase;}
+.confirm-pill{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.7rem;color:var(--gold-soft);}
+.confirm-pill .check{width:20px;height:20px;border-radius:50%;background:var(--gold);display:grid;place-items:center;}
+.confirm-pill .check:after{content:"";width:6px;height:10px;border:solid var(--navy);border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-1px);}
+@media(max-width:560px){.confirm-pill span.t{display:none;}}
+
+/* HERO / confirmation + VSL */
+.top{background:var(--navy);color:#fff;overflow:hidden;}
+.top:before{content:"";position:absolute;inset:0;background:radial-gradient(110% 80% at 50% 0%,rgba(77,56,38,.85),transparent 60%),radial-gradient(80% 70% at 100% 100%,rgba(109,31,51,.3),transparent 55%);}
+.top .narrow{position:relative;text-align:center;}
+.badge-ok{display:inline-flex;align-items:center;gap:11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);padding:.7em 1.3em;border-radius:40px;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:var(--gold-soft);}
+.badge-ok .check{width:22px;height:22px;border-radius:50%;background:var(--gold);display:grid;place-items:center;}
+.badge-ok .check:after{content:"";width:6px;height:11px;border:solid var(--navy);border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-1px);}
+.top h1{font-family:var(--font-display);font-weight:800;font-size:clamp(1.9rem,3.8vw,3rem);letter-spacing:-.02em;margin-top:26px;text-transform:none;line-height:1.08;}
+.top h1 em{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--gold-soft);}
+.vsl{margin-top:36px;border-radius:5px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 14px,rgba(255,255,255,.02) 14px 28px),var(--navy-2);aspect-ratio:16/9;display:grid;place-items:center;text-align:center;position:relative;}
+.vsl .play{width:84px;height:84px;border-radius:50%;background:var(--wine);display:grid;place-items:center;box-shadow:0 14px 40px -10px rgba(0,0,0,.6);transition:transform .25s;}
+.vsl:hover .play{transform:scale(1.06);}
+.vsl .play:after{content:"";border-style:solid;border-width:15px 0 15px 25px;border-color:transparent transparent transparent #fff;margin-left:6px;}
+.vsl .tag{position:absolute;bottom:16px;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.vsl-unmute{position:absolute;inset:0;z-index:3;width:100%;height:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:rgba(44,32,23,.42);border:none;cursor:pointer;color:#fff;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.88rem;transition:background .25s,opacity .3s;}
+.vsl-unmute .ic{font-size:1.4rem;line-height:1;}
+.vsl-unmute:hover{background:rgba(44,32,23,.56);}
+.vsl-unmute.hide{opacity:0;pointer-events:none;}
+.vsl-speed{margin-top:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;}
+.vsl-speed .lbl{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);font-family:var(--font-display);font-weight:600;margin-right:2px;}
+.vsl-speed button{font-family:var(--font-display);font-weight:700;font-size:.76rem;padding:.42em .8em;border-radius:3px;cursor:pointer;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:var(--gold-soft);transition:.2s;}
+.vsl-speed button:hover{background:rgba(255,255,255,.12);}
+.vsl-speed button.on{background:var(--gold);border-color:var(--gold);color:var(--navy);}
+.top .btn{margin-top:32px;}
+
+/* letter */
+.letter{background:var(--paper);}
+.letter .narrow{}
+.letter .open{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.5rem,2.8vw,2rem);color:var(--wine);line-height:1.35;}
+.letter p{margin-top:1.2em;color:#4a4036;font-size:1.08rem;}
+.letter p.q{font-family:var(--font-serif);font-style:italic;font-size:1.4rem;color:var(--navy);border-left:2px solid var(--gold);padding-left:22px;}
+
+/* mentoria intro */
+.ment{background:var(--cream);}
+.ment .head{text-align:center;max-width:820px;margin:0 auto;}
+.ment .head .sub{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.4rem,2.6vw,1.9rem);color:var(--wine);margin-top:18px;line-height:1.35;}
+.ment .body{max-width:820px;margin:34px auto 0;}
+.ment .body p{color:#4a4036;font-size:1.08rem;margin-top:1.1em;}
+.ment .body p:first-child{margin-top:0;}
+.method{margin-top:36px;background:var(--navy);color:#fff;border-radius:8px;padding:clamp(28px,4vw,42px);position:relative;overflow:hidden;}
+.method:before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--gold),var(--wine));}
+.method .label{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;color:var(--gold-soft);}
+.method h3{font-family:var(--font-serif);font-style:italic;font-weight:600;font-size:clamp(1.8rem,3vw,2.4rem);color:#fff;margin-top:10px;text-transform:none;}
+.method p{color:#e6dccb;margin-top:14px;max-width:60ch;}
+
+/* how it works */
+.how{background:var(--paper);}
+.how .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:42px;}
+.how .c{background:#fff;border:1px solid var(--line);border-radius:6px;padding:30px;border-top:3px solid var(--gold);}
+.how .c .ic{font-family:var(--font-display);font-weight:800;color:var(--gold);font-size:1.1rem;letter-spacing:.12em;text-transform:uppercase;}
+.how .c p{margin-top:14px;color:#4a4036;font-size:1rem;}
+.how .cycle{margin-top:24px;display:flex;flex-wrap:wrap;gap:14px;}
+.how .cyc{display:flex;flex-direction:column;padding:16px 24px;background:var(--navy);color:#fff;border-radius:5px;}
+.how .cyc b{font-family:var(--font-display);font-weight:800;font-size:1.7rem;color:var(--gold-soft);line-height:1;}
+.how .cyc span{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#c6b9a6;margin-top:7px;}
+
+/* panorama */
+.pan{background:var(--cream);}
+.pan .list{margin-top:42px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.pan .it{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:5px;padding:22px 24px;align-items:flex-start;}
+.pan .it .ck{flex:none;width:26px;height:26px;border-radius:50%;background:var(--wine);display:grid;place-items:center;margin-top:2px;}
+.pan .it .ck:after{content:"";width:7px;height:12px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-1px);}
+.pan .it p{color:#4a4036;font-size:1rem;}
+.pan .it p b{color:var(--navy);font-family:var(--font-body);font-weight:700;}
+
+/* offer / pricing */
+.offer{background:var(--navy);color:#fff;overflow:hidden;}
+.offer:before{content:"";position:absolute;inset:0;background:radial-gradient(80% 90% at 50% 0%,rgba(77,56,38,.9),transparent 60%);}
+.offer .inner{position:relative;max-width:760px;margin:0 auto;text-align:center;}
+.offer p.line{color:#e6dccb;margin-top:20px;font-size:1.08rem;}
+.offer .scarcity{font-family:var(--font-serif);font-style:italic;font-size:1.4rem;color:var(--gold-soft);margin-top:18px;}
+.price-card{margin-top:38px;background:linear-gradient(180deg,#fff,var(--cream));color:var(--navy);border-radius:10px;padding:clamp(34px,5vw,52px);box-shadow:0 50px 90px -40px rgba(0,0,0,.7);border:1px solid var(--gold);position:relative;}
+.price-card .seal{display:inline-flex;align-items:center;gap:9px;background:var(--navy);color:var(--gold-soft);font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.13em;font-size:.7rem;padding:.7em 1.3em;border-radius:40px;}
+.price-card .seal .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);}
+.price-card .from{margin-top:26px;font-family:var(--font-display);font-weight:600;font-size:1.3rem;color:var(--muted);text-decoration:line-through;text-decoration-color:var(--wine);}
+.price-card .big{font-family:var(--font-display);font-weight:900;font-size:clamp(3.2rem,8vw,5.5rem);color:var(--wine);line-height:.95;margin-top:6px;}
+.price-card .pay{font-size:1.05rem;color:#4a4036;margin-top:10px;}
+.price-card .pay b{color:var(--navy);}
+.price-card .btn{margin-top:30px;}
+.price-card .limit{margin-top:22px;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;color:var(--wine);}
+
+/* close */
+.close{background:var(--paper);}
+.close .narrow{}
+.close p{color:#4a4036;font-size:1.1rem;margin-top:1.2em;}
+.close p:first-child{margin-top:0;}
+.close p.strong{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.4rem,2.6vw,1.85rem);color:var(--wine);line-height:1.35;}
+.close .btn{margin-top:34px;}
+
+/* final */
+.final{background:var(--navy);color:#fff;text-align:center;overflow:hidden;}
+.final:before{content:"";position:absolute;inset:0;background:radial-gradient(70% 90% at 50% 100%,rgba(109,31,51,.4),transparent 60%);}
+.final .inner{position:relative;max-width:720px;margin:0 auto;}
+.final .scar{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.4rem,2.6vw,1.9rem);color:var(--gold-soft);line-height:1.4;}
+.final .btn{margin-top:34px;}
+
+.foot{background:#1f1710;color:#9d8f7c;padding:40px 0;text-align:center;font-size:.8rem;}
+.foot .brand{justify-content:center;margin-bottom:14px;}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+@media(max-width:860px){
+  .how .grid{grid-template-columns:1fr;}
+  .pan .list{grid-template-columns:1fr;}
+}
+@media(max-width:520px){
+  .wrap,.narrow{padding:0 20px;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#topo">
+      <span class="seal">VS</span>
+      <span><b>Victoria Salgueiro</b><span>Cidadania Europeia</span></span>
+    </a>
+    <span class="confirm-pill"><span class="check"></span><span class="t">Compra confirmada</span></span>
+  </div>
+</header>
+
+<!-- TOP: confirmation + VSL -->
+<section class="top pad" id="topo">
+  <div class="narrow">
+    <span class="badge-ok"><span class="check"></span>Compra confirmada</span>
+    <h1>Sua compra foi confirmada. Mas, antes de você acessar a masterclass, assista a esse vídeo <em>até o final</em>.</h1>
+    <div class="vsl" id="vslWrap">
+      <video id="vslVideo" src="assets/victoria-obrigado-vsl.mp4"
+             autoplay muted playsinline controls preload="auto"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000"></video>
+      <button class="vsl-unmute" id="vslUnmute" type="button" aria-label="Ativar som">
+        <span class="ic">&#128266;</span> Toque para ativar o som
+      </button>
+    </div>
+    <div class="vsl-speed" id="vslSpeed" aria-label="Velocidade de reprodução">
+      <span class="lbl">Velocidade</span>
+      <button type="button" data-rate="0.75">0.75x</button>
+      <button type="button" data-rate="1" class="on">1x</button>
+      <button type="button" data-rate="1.25">1.25x</button>
+      <button type="button" data-rate="1.5">1.5x</button>
+      <button type="button" data-rate="2">2x</button>
+    </div>
+    <a class="btn big" href="#oferta">Quero minha vaga na mentoria <span class="arr">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- LETTER -->
+<section class="letter pad">
+  <div class="narrow reveal">
+    <p class="open">Eu preciso te contar uma coisa.</p>
+    <p>A masterclass que você acabou de garantir foi feita para te dar clareza. Para você entender o mercado, enxergar a oportunidade e saber se esse caminho faz sentido para a sua carreira.</p>
+    <p>Ela responde a pergunta "isso é para mim?".</p>
+    <p class="q">Mas existe uma pergunta que vem logo depois, e que a masterclass não tem como responder sozinha: "e agora, como eu faço isso de verdade?".</p>
+    <p>É sobre isso que o vídeo acima fala. E é sobre isso que eu quero te apresentar agora.</p>
+  </div>
+</section>
+
+<!-- MENTORIA -->
+<section class="ment pad">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker dark">A mentoria</span>
+      <h2 style="margin-top:18px;color:var(--navy)">Mentoria Passaporte Carreira Internacional</h2>
+      <p class="sub">A masterclass mostra o mapa. A mentoria te ensina a percorrer o caminho.</p>
+    </div>
+    <div class="body reveal">
+      <p>Enquanto a masterclass apresenta o território, a Mentoria Passaporte Carreira Internacional te forma para atuar de verdade nesse mercado. É onde você sai do "entendi como funciona" para o "tenho o meu primeiro cliente pagante".</p>
+      <p>Dentro dela, você aprende a base técnica das cidadanias portuguesa, italiana e alemã, como montar e analisar árvores genealógicas, como fazer a triagem de viabilidade de um caso, como estruturar e precificar o seu serviço e como captar os seus primeiros clientes.</p>
+      <div class="method">
+        <div class="label">O método</div>
+        <h3>Método Passaporte Seguro</h3>
+        <p>Tudo isso através do Método Passaporte Seguro, as 7 fases que conduzem um processo de cidadania do início ao fim com segurança técnica. O mesmo protocolo que eu uso em todos os processos do meu escritório, construído na prática, caso a caso, ao longo de mais de 8 anos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how pad">
+  <div class="wrap">
+    <div class="head reveal" style="max-width:760px">
+      <span class="kicker dark">Como a mentoria funciona</span>
+      <h2 style="margin-top:18px;color:var(--navy)">Estrutura pensada para a prática</h2>
+    </div>
+    <div class="grid reveal">
+      <div class="c"><div class="ic">Aulas gravadas</div><p>Aulas gravadas organizadas em módulos curtos e práticos, para você assistir no seu ritmo.</p></div>
+      <div class="c"><div class="ic">HotSeats ao vivo</div><p>Encontros mensais ao vivo no formato HotSeat, para tirar dúvidas práticas e analisar casos reais.</p></div>
+      <div class="c"><div class="ic">Material e templates</div><p>Material didático complementar e templates para usar no dia a dia.</p></div>
+    </div>
+    <div class="cycle reveal">
+      <div class="cyc"><b>6</b><span>Meses de ciclo</span></div>
+      <div class="cyc"><b>6</b><span>HotSeats ao vivo</span></div>
+      <div class="cyc"><b>1 ano</b><span>De acesso às gravações</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PANORAMA -->
+<section class="pan pad">
+  <div class="wrap">
+    <div class="head reveal" style="max-width:760px">
+      <span class="kicker dark">Um panorama do que você encontra na mentoria</span>
+      <h2 style="margin-top:18px;color:var(--navy)">O que você aprende por dentro</h2>
+    </div>
+    <div class="list reveal">
+      <div class="it"><span class="ck"></span><p><b>O mercado e o perfil do cliente</b>, com uma visão completa da oportunidade</p></div>
+      <div class="it"><span class="ck"></span><p><b>Base técnica das três cidadanias mais buscadas</b>, portuguesa, italiana e alemã, com regras de transmissão, particularidades, atualizações de legislação e serviços paralelos que você também pode oferecer</p></div>
+      <div class="it"><span class="ck"></span><p><b>Genealogia aplicada</b>, como montar, verificar e buscar certidões antigas no Brasil e na Europa</p></div>
+      <div class="it"><span class="ck"></span><p><b>Triagem e análise de viabilidade</b>, para avaliar com segurança se o caso de um cliente é viável antes de avançar</p></div>
+      <div class="it"><span class="ck"></span><p><b>Estrutura do negócio</b>, como precificar, organizar o atendimento e montar o seu serviço de assessoria</p></div>
+      <div class="it"><span class="ck"></span><p><b>Captação de clientes</b>, canais, posicionamento e os primeiros clientes</p></div>
+      <div class="it"><span class="ck"></span><p><b>Casos práticos e erros comuns</b>, estudos de caso reais para você não repetir os erros que travam processos</p></div>
+      <div class="it"><span class="ck"></span><p><b>Bônus</b>, como verificar a viabilidade de outras cidadanias, como polonesa, tcheca, espanhola e luxemburguesa</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer pad" id="oferta">
+  <div class="wrap">
+    <div class="inner">
+      <span class="kicker">A condição dos 10 primeiros</span>
+      <h2 style="margin-top:18px;color:#fff">A mentoria custa R$ 5.000</h2>
+      <p class="line reveal">Mas, como você acabou de entrar na masterclass, você tem acesso a uma condição que não vai estar disponível depois.</p>
+      <p class="scarcity reveal">A primeira turma está abrindo com uma condição especial para os 10 primeiros: R$ 3.500.</p>
+      <p class="line reveal">São vagas limitadas, e essa é a única vez que você vai ver esse valor.</p>
+      <div class="price-card reveal">
+        <span class="seal"><span class="dot"></span>Condição exclusiva para alunos da masterclass</span>
+        <div class="from">De R$ 5.000</div>
+        <div class="big">Por R$ 3.500</div>
+        <div class="pay">à vista ou <b>parcelado</b></div>
+        <a class="btn gold big block" href="#" onclick="return false">Quero minha vaga na mentoria <span class="arr">&rarr;</span></a>
+        <div class="limit">Vagas limitadas aos 10 primeiros</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close pad">
+  <div class="narrow reveal">
+    <p class="strong">Se você sentir que esse não é o momento, sem problema nenhum.</p>
+    <p>A sua masterclass está liberada e te espera na área de membros, com tudo o que você precisa para dar o primeiro passo.</p>
+    <p>Mas se assistir ao vídeo acima fez você perceber que quer ir além do mapa e realmente construir essa carreira, a condição dos 10 primeiros está aqui, agora.</p>
+    <a class="btn" href="#oferta">Quero minha vaga na mentoria <span class="arr">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final pad">
+  <div class="wrap">
+    <div class="inner">
+      <span class="kicker">O mercado não espera</span>
+      <p class="scar" style="margin-top:20px">O mercado de cidadania europeia está aquecido. Cada mês que passa é um mês de clientes sendo conquistados por outros profissionais. Quem entra antes, sai na frente.</p>
+      <a class="btn gold big" href="#oferta">Quero começar agora <span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="#topo">
+      <span class="seal">VS</span>
+      <span><b style="color:#fff">Victoria Salgueiro</b><span>Cidadania Europeia</span></span>
+    </a>
+    <div>Mentoria Passaporte Carreira Internacional</div>
+  </div>
+</footer>
+
+<script>
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+/* VSL player: autoplay mudo + ativar som + velocidade */
+(function(){
+  var v = document.getElementById('vslVideo');
+  if(!v) return;
+  var unmute = document.getElementById('vslUnmute');
+  var speed  = document.getElementById('vslSpeed');
+  var p = v.play();
+  if(p && p.catch){ p.catch(function(){}); }
+  if(unmute){
+    unmute.addEventListener('click', function(){
+      v.muted = false; v.volume = 1;
+      if(v.paused){ v.play().catch(function(){}); }
+      unmute.classList.add('hide');
+    });
+    v.addEventListener('volumechange', function(){
+      if(!v.muted){ unmute.classList.add('hide'); }
+    });
+  }
+  if(speed){
+    speed.addEventListener('click', function(e){
+      var b = e.target.closest('button[data-rate]');
+      if(!b) return;
+      v.playbackRate = parseFloat(b.getAttribute('data-rate'));
+      speed.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+    });
+  }
+})();
+</script>
+</body>
+</html>

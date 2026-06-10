@@ -125,6 +125,15 @@ section{position:relative;}
 .vsl:hover .play{transform:scale(1.06);}
 .vsl .play:after{content:"";border-style:solid;border-width:13px 0 13px 22px;border-color:transparent transparent transparent #fff;margin-left:5px;}
 .vsl .tag{position:absolute;bottom:14px;font-family:var(--font-body);font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.vsl-unmute{position:absolute;inset:0;z-index:3;width:100%;height:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:rgba(44,32,23,.42);border:none;cursor:pointer;color:#fff;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.88rem;transition:background .25s,opacity .3s;}
+.vsl-unmute .ic{font-size:1.4rem;line-height:1;}
+.vsl-unmute:hover{background:rgba(44,32,23,.56);}
+.vsl-unmute.hide{opacity:0;pointer-events:none;}
+.vsl-speed{margin-top:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.vsl-speed .lbl{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#a3957f;font-family:var(--font-display);font-weight:600;margin-right:2px;}
+.vsl-speed button{font-family:var(--font-display);font-weight:700;font-size:.76rem;padding:.42em .8em;border-radius:3px;cursor:pointer;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#e6dccb;transition:.2s;}
+.vsl-speed button:hover{background:rgba(255,255,255,.12);}
+.vsl-speed button.on{background:var(--gold);border-color:var(--gold);color:var(--navy);}
 .hero .cta-row{margin-top:32px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;}
 .hero .cta-row small{color:#a3957f;font-size:.8rem;}
 
@@ -341,9 +350,21 @@ section{position:relative;}
       <span class="kicker">Masterclass Passaporte Carreira Internacional</span>
       <h1 style="margin-top:20px">Existe um mercado que cresce todos os anos no Brasil, paga em <em>euro</em> e quase ninguém da sua área sabe que ele existe.</h1>
       <p class="sub lead">Descubra como profissionais de diferentes áreas estão construindo uma carreira internacional, trabalhando de casa, com clientes próprios e honorários em euro, dentro do mercado de assessoria em cidadania europeia.</p>
-      <div class="vsl">
-        <video src="assets/victoria-vsl.mp4" controls playsinline preload="metadata"
+      <div class="vsl" id="vslWrap">
+        <video id="vslVideo" src="assets/victoria-vsl.mp4"
+               autoplay muted playsinline controls preload="auto"
                style="width:100%;height:100%;object-fit:cover;background:#000"></video>
+        <button class="vsl-unmute" id="vslUnmute" type="button" aria-label="Ativar som">
+          <span class="ic">&#128266;</span> Toque para ativar o som
+        </button>
+      </div>
+      <div class="vsl-speed" id="vslSpeed" aria-label="Velocidade de reprodução">
+        <span class="lbl">Velocidade</span>
+        <button type="button" data-rate="0.75">0.75x</button>
+        <button type="button" data-rate="1" class="on">1x</button>
+        <button type="button" data-rate="1.25">1.25x</button>
+        <button type="button" data-rate="1.5">1.5x</button>
+        <button type="button" data-rate="2">2x</button>
       </div>
       <div class="cta-row">
         <a class="btn big" href="#comprar">Quero conhecer esse mercado <span class="arr">&rarr;</span></a>
@@ -634,6 +655,43 @@ var io = new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
 },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+/* VSL player: autoplay mudo + ativar som + velocidade */
+(function(){
+  var v = document.getElementById('vslVideo');
+  if(!v) return;
+  var unmute = document.getElementById('vslUnmute');
+  var speed  = document.getElementById('vslSpeed');
+
+  /* garante o autoplay (mudo) */
+  var p = v.play();
+  if(p && p.catch){ p.catch(function(){}); }
+
+  /* ativar som */
+  if(unmute){
+    unmute.addEventListener('click', function(){
+      v.muted = false;
+      v.volume = 1;
+      if(v.paused){ v.play().catch(function(){}); }
+      unmute.classList.add('hide');
+    });
+    /* se desmutar pelos controles nativos, some o overlay */
+    v.addEventListener('volumechange', function(){
+      if(!v.muted){ unmute.classList.add('hide'); }
+    });
+  }
+
+  /* controle de velocidade */
+  if(speed){
+    speed.addEventListener('click', function(e){
+      var b = e.target.closest('button[data-rate]');
+      if(!b) return;
+      v.playbackRate = parseFloat(b.getAttribute('data-rate'));
+      speed.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+    });
+  }
+})();
 </script>
 </body>
 </html>
